@@ -8,21 +8,19 @@ To write a python program to implement multivariate linear regression and predic
 
 ## Algorithm:
 ### Step1
-Get the independent variable X and dependent variable Y.
+Import Pandas library.
 
 ### Step2
-Calculate the mean of the X -values and the mean of the Y -values.
+Import Linear_model from sklearn.
   
 ### Step3
-Find the slope m of the line of best fit using the formula. 
-<img width="200" height="57" alt="image" src="https://github.com/user-attachments/assets/ce0881d0-3694-4f47-af5f-8644ff09cce6" />
+Read the csv file using pandas library.
 
 ### Step4
-Compute the y -intercept of the line by using the formula: eqn2
+Enter the parameters of the linear function.
 
 ### Step5
-Use the slope m and the y -intercept to form the equation of the line.
-Obtain the straight line equation Y=mX
+Print the parameters of the linear function.
 
 ## Program:
 ```
@@ -31,26 +29,20 @@ Obtain the straight line equation Y=mX
 
 import pandas as pd
 from sklearn import linear_model
-df=pd.read_csv("car.csv")
-x=df[['Weight','Volume']]
-y=df['CO2']
-regr=linear_model.LinearRegression()
-regr.fit(x,y)
-print('Coefficients:',regr.coef_)
+df = pd.read_csv("carsemission.csv")
+X = df[['Weight', 'Volume']]
+y = df['CO2']
+regr = linear_model.LinearRegression()
+regr.fit(X, y)
+print('Coefficients:', regr.coef_)
 print('Intercept:',regr.intercept_)
-predictedCO2=regr.predict([[3300,1300]])
-print('PredictedCO2 for the corresponding Weight and Volume : ',predictedCO2)
+predictedCO2 = regr.predict([[3300, 1300]])
+print('Predicted CO2 for the corresponding weight and volume',predictedCO2)
 
 ```
 ## Output:
-'''
-Coefficients: [0.00755095 0.00780526]
-Intercept: 79.69471929115939
-PredictedCO2 for the corresponding Weight and Volume :  [114.75968007]
-'''
+<img width="1842" height="348" alt="image" src="https://github.com/user-attachments/assets/ec8406c9-f1e8-4266-a4f5-b00601994cff" />
 
-### Insert your output
-<img width="828" height="392" alt="image" src="https://github.com/user-attachments/assets/59e34da1-a5d7-465f-8101-3d7269ce7930" />
 
 
 ## Result
